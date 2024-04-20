@@ -2,6 +2,7 @@ from robocorp.tasks import task
 from robocorp import workitems
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver import FirefoxOptions
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
@@ -15,9 +16,9 @@ def extract_news_article_data():
     """Extracting news article data from specified webpage
        using search parameters entered by the user."""
     #search_phrase = get_search_phrase()
-    options = webdriver.ChromeOptions()
-    options.add_argument('--disable-dev-shm-usage')
-    driver = webdriver.Firefox()
+    opts = FirefoxOptions()
+    opts.add_argument("--headless")
+    driver = webdriver.Firefox(options=opts)
     driver.implicitly_wait(10)
     open_news_website(driver)
     search_phrase = enter_search_phrase(driver)
