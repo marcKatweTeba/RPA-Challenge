@@ -56,12 +56,21 @@ def enter_search_phrase(driver):
 def load_all_results(driver):
     """Load the entire list of search results"""
     load_more = True
+    """
     while (load_more):
         try:
             load_more_button = driver.find_element(By.XPATH, "//button[.//span[text()[contains(., 'Load More')]]]")
             load_more_button.click()
         except (NoSuchElementException, ElementClickInterceptedException):
             load_more = False
+    """
+    for i in range(7):
+        try:
+            load_more_button = driver.find_element(By.XPATH, "//button[.//span[text()[contains(., 'Load More')]]]")
+            load_more_button.click()
+        except (NoSuchElementException, ElementClickInterceptedException):
+            load_more = False
+        
         
 def get_search_results_list(driver, search_phrase):
     """Retrieve the list of search results"""
