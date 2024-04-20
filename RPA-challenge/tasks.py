@@ -46,7 +46,7 @@ def enter_search_phrase(driver):
     search_icon_found = False
     while (search_icon_found != True):
         try:
-            search_icon = driver.find_element(By.XPATH, "//button[.//span[contains(@class, 'pi-search')]]")
+            search_icon = driver.find_element(By.XPATH, "//button[contains(@class, 'p-button')][.//span[contains(@class, 'pi-search')]]")
             search_icon.click()
             search_icon_found = True
         except (NoSuchElementException, ElementClickInterceptedException):
