@@ -42,7 +42,7 @@ def get_search_phrase():
 def enter_search_phrase(driver):
     """Enter the search phrase in search input field"""
     search_phrase = "Trump"
-    search_btn = driver.find_elements(By.CLASS_NAME, "search-button")
+    search_btn = driver.find_element(By.CLASS_NAME, "search-button")
     search_icon_found = False
     while (search_icon_found != True):
         try:
