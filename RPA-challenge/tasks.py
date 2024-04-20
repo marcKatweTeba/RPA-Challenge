@@ -17,7 +17,7 @@ def extract_news_article_data():
     #search_phrase = get_search_phrase()
     options = webdriver.ChromeOptions()
     options.add_argument('--disable-dev-shm-usage')
-    driver = webdriver.Chrome(options= options)
+    driver = webdriver.Firefox()
     driver.implicitly_wait(10)
     open_news_website(driver)
     search_phrase = enter_search_phrase(driver)
