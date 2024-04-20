@@ -18,7 +18,7 @@ def extract_news_article_data():
        using search parameters entered by the user."""
     #search_phrase = get_search_phrase()
     opts = ChromeOptions()
-    opts.add_argument("--headless")
+    opts.add_argument('--no-sandbox')
     driver = webdriver.Chrome(options=opts)
     driver.implicitly_wait(10)
     open_news_website(driver)
