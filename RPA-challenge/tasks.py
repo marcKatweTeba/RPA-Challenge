@@ -42,7 +42,14 @@ def get_search_phrase():
 def enter_search_phrase(driver):
     """Enter the search phrase in search input field"""
     search_phrase = "Trump"
-    search_icon = driver.find_element(By.CSS_SELECTOR, ".search-button button")
+    
+    search_icon_found = False
+    while (search_icon_found != True):
+        try:
+            search_icon = driver.find_element(By.CSS_SELECTOR, ".search-button button")
+            search_icon_found = True
+        except (NoSuchElementException, ElementClickInterceptedException):
+            print("No search button found")
     search_icon.click()
     search_field = driver.find_element(By.CLASS_NAME, "search-page-input")
     search_field.send_keys(search_phrase)
