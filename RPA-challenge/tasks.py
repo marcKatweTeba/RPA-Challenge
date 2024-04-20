@@ -20,6 +20,7 @@ def extract_news_article_data():
     opts = ChromeOptions()
     opts.add_argument('--no-sandbox')
     opts.add_argument('--headless')
+    opts.add_argument('--disable-dev-shm-usage')
     driver = webdriver.Chrome(options=opts)
     driver.implicitly_wait(10)
     open_news_website(driver)
