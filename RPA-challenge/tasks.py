@@ -15,7 +15,9 @@ def extract_news_article_data():
     """Extracting news article data from specified webpage
        using search parameters entered by the user."""
     #search_phrase = get_search_phrase()
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    options = webdriver.ChromeOptions()
+    options.add_argument('--disable-dev-shm-usage')
+    driver = webdriver.Chrome(options= options)
     driver.implicitly_wait(10)
     open_news_website(driver)
     search_phrase = enter_search_phrase(driver)
